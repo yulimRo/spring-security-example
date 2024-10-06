@@ -39,6 +39,7 @@ public class SpringSecurityConfig {
                 .authorizeHttpRequests((requests) -> requests
                         //.dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/login")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/user")).hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
@@ -54,7 +55,7 @@ public class SpringSecurityConfig {
         UserDetails user = User.withDefaultPasswordEncoder()
                 .username("ylro")
                 .password("1")
-                .roles("ADMIN")
+                .roles("USER")
                 .build();
         UserDetails user2 = User.withDefaultPasswordEncoder()
                 .username("wjchoi")
