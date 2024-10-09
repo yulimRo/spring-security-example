@@ -16,7 +16,7 @@ import com.yoodaengs.springboot.spring_sercurity_example.config.jwt.TokenProvide
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class TokenAuthenticationFilter extends OncePerRequestFilter {
+public class JwtAuthenticationFilter extends OncePerRequestFilter {
 	
 	private final TokenProvider tokenProvider;
 	private final static String HEADER_AUTHORIZATION = "Authorization";
